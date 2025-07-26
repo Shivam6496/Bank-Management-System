@@ -12,6 +12,8 @@ Project for Bank-Management-System
 
 # Customer Login
 - Step: Login using customer login using username and password provided during registration.
+- <img width="1582" height="912" alt="image" src="https://github.com/user-attachments/assets/044fab82-60a1-491c-afad-5d508fd0604b" />
+
 
 # Apply for Loan
 - Step: Apply for loan using apply for loan link.
