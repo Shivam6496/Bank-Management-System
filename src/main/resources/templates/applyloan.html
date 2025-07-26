@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Apply for Loan</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f2f6fc;
+            font-family: 'Segoe UI', sans-serif;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            font-size: 100px;
+            color: rgba(0, 0, 0, 0.05);
+            transform: translate(-50%, -50%) rotate(-30deg);
+            pointer-events: none;
+            z-index: 0;
+            white-space: nowrap;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 70px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background: linear-gradient(to right, #0072ff, #00c6ff);
+        }
+    </style>
+</head>
+<body>
+
+<div class="watermark">Shivam Bank</div>
+
+<div class="container">
+    <div class="title">💰 Apply for Loan</div>
+
+    <form th:action="@{/customer/applyLoan}" method="post" th:object="${loan}">
+        <div class="mb-3">
+            <label for="loanType" class="form-label">Loan Type:</label>
+            <input type="text" class="form-control" id="loanType" th:field="*{loanType}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="loanAmount" class="form-label">Loan Amount:</label>
+            <input type="number" class="form-control" id="loanAmount" th:field="*{loanAmount}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="loanDate" class="form-label">Date:</label>
+            <input type="date" class="form-control" id="loanDate" th:field="*{loanDate}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="rateOfInterest" class="form-label">Rate of Interest:</label>
+            <input type="number" class="form-control" id="rateOfInterest" th:field="*{rateOfInterest}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="duration" class="form-label">Duration (in months):</label>
+            <input type="number" class="form-control" id="duration" th:field="*{duration}" required>
+        </div>
+
+        <button type="submit">Apply</button>
+    </form>
+</div>
+
+</body>
+</html>
